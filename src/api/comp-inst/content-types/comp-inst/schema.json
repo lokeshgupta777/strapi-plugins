@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "comp_insts",
+  "info": {
+    "singularName": "comp-inst",
+    "pluralName": "comp-insts",
+    "displayName": "comp Inst",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hh": {
+      "type": "component",
+      "repeatable": false,
+      "component": "new-component.user-component"
+    }
+  }
+}
