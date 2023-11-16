@@ -1,10 +1,4 @@
-module.exports = [
-  {
-    method: 'GET',
-    path: '/',
-    handler: 'myController.index',
-    config: {
-      policies: [],
-    },
-  },
-];
+module.exports = {
+  "help": require('./help'),
+  "settings": require('./settings')
+}

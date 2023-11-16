@@ -3,11 +3,33 @@ import pluginPkg from '../../package.json';
 import pluginId from './pluginId';
 import Initializer from './components/Initializer';
 import PluginIcon from './components/PluginIcon';
+import getTrad from './utils/getTrad';
 
 const name = pluginPkg.strapi.name;
 
 export default {
   register(app) {
+    app.createSettingSection(
+      {
+        id: pluginId,
+        intlLabel: { id: getTrad('plugin.name'), defaultMessage: 'Help Tooltip' },
+      },
+      [
+        {
+          intlLabel: {
+            id: getTrad("plugin.settings.help.title"),
+            defaultMessage: "General settings"
+          },
+          id: 'settings',
+          to: `/settings/${pluginId}`,
+          Component: async () => {
+            return import("./pages/Settings/index.js");
+          },
+          //NEXT TIME -> permissions: pluginPermissions.settings,
+        },
+      ]
+    );
+
     app.addMenuLink({
       to: `/plugins/${pluginId}`,
       icon: PluginIcon,
@@ -16,7 +38,7 @@ export default {
         defaultMessage: name,
       },
       Component: async () => {
-        const component = await import('./pages/App');
+        const component = await import('./pages/App/index.js');
 
         return component;
       },
@@ -36,7 +58,7 @@ export default {
     });
   },
 
-  bootstrap(app) {},
+  bootstrap(app) { },
   async registerTrads({ locales }) {
     const importedTrads = await Promise.all(
       locales.map((locale) => {

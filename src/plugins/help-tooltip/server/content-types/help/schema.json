@@ -14,5 +14,13 @@
     "key": {
       "type": "string"
     }
+  },
+  "pluginOptions": {
+    "content-manager": {
+      "visible": true
+    },
+    "content-type-builder": {
+      "visible": true
+    }
   }
 }

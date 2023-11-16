@@ -1,3 +1,7 @@
 'use strict';
 
-module.exports = {};
+const help = require('./help')
+
+module.exports = {
+  help
+};
